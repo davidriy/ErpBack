@@ -6,16 +6,20 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.Date;
 
+@Document("user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document("user")
 public class User {
     @Id
     private String id;
     private String username;
     private String password;
-    private Date timestamp;
+    private String email;
+    private Instant creationTime;
+    private boolean enabled;
+
 }

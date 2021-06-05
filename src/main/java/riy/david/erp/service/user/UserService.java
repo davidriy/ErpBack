@@ -8,6 +8,7 @@ import riy.david.erp.model.User;
 import riy.david.erp.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,5 +23,8 @@ public class UserService {
     }
     public ResponseEntity<List<User>> getAllUsers(){
         return ResponseEntity.ok(userRepository.findAll());
+    }
+    public ResponseEntity<Optional<User>> getUserByUsername(User user){
+        return ResponseEntity.ok(userRepository.findByUsername(user.getUsername()));
     }
 }
